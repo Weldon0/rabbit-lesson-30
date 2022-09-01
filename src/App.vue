@@ -1,5 +1,9 @@
 <template>
-  <div>app组件</div>
+  <div class="box">app组件</div>
+  <ul>
+    <li>234</li>
+    <li>234</li>
+  </ul>
 </template>
 
 <script lang="ts" setup>
@@ -8,7 +12,7 @@ import {onMounted} from "vue";
 import request from "./utils/request";
 
 onMounted(() => {
-//  请求接口
+  // 请求接口
   request({
     url: '/home/index',
     method: 'GET'
@@ -17,3 +21,11 @@ onMounted(() => {
   })
 })
 </script>
+<style lang="less">
+// 必须导入variables.less
+// 全局一次性的引入
+.box {
+  background: @xtxColor;
+  .hoverShadow();
+}
+</style>
