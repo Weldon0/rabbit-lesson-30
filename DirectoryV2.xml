@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <trees>
+     <tree path="/src/views/layout/components/app-topnav.vue" title="顶部通栏组件" extension="vue"/>
+     <tree path="/src/views/layout/components/app-header.vue" title="头部菜单组件" extension="vue"/>
+     <tree path="/src/views/layout/index.vue" title="layout入口文件" extension="vue" icons="JavaeeHome"/>
+     <tree path="/src/views/layout/components/app-header-nav.vue" title="头部菜单内容封装" extension="vue"/>
+     <tree path="/src/views/layout/components/app-footer.vue" title="底部" extension="vue"/>
+     <tree path="/src/store/modules/category" title="分类pinia模块"/>
+ </trees>
