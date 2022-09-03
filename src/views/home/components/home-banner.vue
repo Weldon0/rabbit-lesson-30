@@ -10,7 +10,7 @@ homeStore.getBannerList()
 <template>
   <div class="home-banner">
     <!-- 轮播图 -->
-    <XtxCarousel :slides="homeStore.list"></XtxCarousel>
+    <XtxCarousel :auto-play="true" :duration="500" :slides="homeStore.list"></XtxCarousel>
   </div>
 </template>
 

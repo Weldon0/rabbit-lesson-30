@@ -1,45 +1,105 @@
 <script lang="ts" setup name="XtxCarousel">
-import {BannerItem} from "@/types";
-import {PropType, ref} from "vue";
+import { BannerItem } from "@/types";
+import { onMounted, onUnmounted, PropType, ref } from "vue";
 // 如果想要在js引入的写法里面限制更加精确的类型
-defineProps({
+// 可以使用PropType
+const props = defineProps({
   slides: {
     type: Array as PropType<BannerItem[]>, // BannerItem[]
-    required: true
-  }
-})
+    required: true,
+  },
+  // 是否开启自动播放
+  autoPlay: {
+    type: Boolean,
+    value: false,
+  },
+  // 自动播放的间隔时间
+  // 默认情况下是3s
+  duration: {
+    type: Number,
+    value: 3000,
+  },
+});
 // 存储当前选中的index
-const currentIndex = ref(0)
+const currentIndex = ref(0);
+
+// 点击切换功能
+// 下一张
+const next = () => {
+  // currentIndex的值不能超过图片的长度
+  if (currentIndex.value >= props.slides.length - 1) {
+    currentIndex.value = 0;
+  } else {
+    currentIndex.value++;
+  }
+};
+// 点击上一张
+const prev = () => {
+  if (currentIndex.value <= 0) {
+    currentIndex.value = props.slides.length - 1;
+  } else {
+    currentIndex.value--;
+  }
+};
+
+// 定时器的标识
+let timer = 0;
+
+// 页面挂在完成的时候，需要判断进行自动播放
+onMounted(() => {
+  play();
+});
+
+// 处理自动播放功能
+const play = () => {
+  // 如果自动播放没有开启，代码终止
+  if (!props.autoPlay) return;
+  //  开启定时器去自动切换
+  timer = window.setInterval(() => {
+    next();
+  }, props.duration);
+};
+
+onUnmounted(() => {
+  stop();
+});
+// 停止播放的方法
+// 组件卸载的时候，需要销毁定时器
+const stop = () => {
+  //  清除定时器
+  window.clearInterval(timer);
+};
 </script>
 
 <template>
-  <div class="xtx-carousel">
+  <!--  鼠标移入到轮播区域的时候，停止轮播，鼠标移走的时候，继续播放-->
+  <div class="xtx-carousel" @mouseenter="stop" @mouseleave="play">
     <ul class="carousel-body">
+      <!--给item添加fade类名，当前图片就会展示出来-->
+      <!--动态添加类名，当前项index=循环遍历index的时候展示出来-->
       <li
-          class="carousel-item fade"
-          v-for="item in slides"
-          :key="item.id"
+        class="carousel-item"
+        :class="{ fade: currentIndex === index }"
+        v-for="(item, index) in slides"
+        :key="item.id"
       >
         <RouterLink :to="item.hrefUrl">
-          <img
-              :src="item.imgUrl"
-              alt=""
-          />
+          <img :src="item.imgUrl" alt="" />
         </RouterLink>
       </li>
     </ul>
-    <a href="javascript:;" class="carousel-btn prev"
-    ><i class="iconfont icon-angle-left"></i
-    ></a>
-    <a href="javascript:;" class="carousel-btn next"
-    ><i class="iconfont icon-angle-right"></i
+    <a @click="prev" href="javascript:;" class="carousel-btn prev">
+      <i class="iconfont icon-angle-left"></i>
+    </a>
+    <a @click="next" href="javascript:;" class="carousel-btn next"
+      ><i class="iconfont icon-angle-right"></i
     ></a>
     <div class="carousel-indicator">
       <span
-          @click="currentIndex = index"
-          :class="{active: currentIndex === index}"
-          v-for="(item, index) in slides"
-          :key="item.id"
+        @mouseenter="currentIndex = index"
+        :class="{ active: currentIndex === index }"
+        v-for="(item, index) in slides"
+        :key="item.id"
       ></span>
     </div>
   </div>
