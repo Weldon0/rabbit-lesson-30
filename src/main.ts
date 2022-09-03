@@ -4,6 +4,7 @@ import App from './App.vue'
 import 'normalize.css'
 import '@/assets/styles/common.less'
 import {createPinia} from "pinia";
+import XtxUI from '@/components/index'
 // 引入路由
 import router from "@/router";
 
@@ -12,5 +13,6 @@ const pinia = createPinia()
 // 注册路由
 app.use(router)
 app.use(pinia)
+app.use(XtxUI)
 app.mount('#app')
 
