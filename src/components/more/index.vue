@@ -1,12 +1,10 @@
 <script lang="ts" setup name="XtxMore">
-import { defineProps } from "vue";
-
 defineProps({
   path: {
     type: String,
-    default: "/",
+    default: '/',
   },
-});
+})
 </script>
 <template>
   <RouterLink :to="path" class="xtx-more">

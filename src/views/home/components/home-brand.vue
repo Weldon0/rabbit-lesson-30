@@ -7,6 +7,9 @@ import HomeSkeleton from '@/views/home/components/home-skeleton.vue'
 
 const { homeStore } = useStore()
 const target = useLazyData(homeStore.getBrandList)
+// 添加transition切换动画
+// 添加骨架屏优化
+// 组件数据懒加载
 </script>
 
 <template>
