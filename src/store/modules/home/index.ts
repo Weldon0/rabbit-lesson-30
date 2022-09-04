@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ApiRes, BannerItem, NewGoodItem } from "@/types";
+import { ApiRes, BannerItem, HotGoodItem, NewGoodItem } from "@/types";
 import request from "@/utils/request";
 
 const useHome = defineStore("home", {
@@ -7,6 +7,7 @@ const useHome = defineStore("home", {
     return {
       list: [] as BannerItem[],
       newGoodsList: [] as NewGoodItem[],
+      hotGoodsList: [] as HotGoodItem[],
     };
   },
   actions: {
@@ -19,6 +20,11 @@ const useHome = defineStore("home", {
     async getNewGoodsList() {
       const res = await request.get<ApiRes<NewGoodItem[]>>("/home/new");
       this.newGoodsList = res.data.result;
+    },
+    //   定义人气推荐的数据请求
+    async getHotGoodsList() {
+      const res = await request.get<ApiRes<HotGoodItem[]>>("/home/hot");
+      this.hotGoodsList = res.data.result;
     },
   },
 });

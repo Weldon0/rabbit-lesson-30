@@ -2,15 +2,19 @@
 // 获取轮播图数据
 import useStore from "@/store";
 
-const {homeStore} = useStore()
+const { homeStore } = useStore();
 
 // 调用pinia方法获取轮播图数据
-homeStore.getBannerList()
+homeStore.getBannerList();
 </script>
 <template>
   <div class="home-banner">
     <!-- 轮播图 -->
-    <XtxCarousel :auto-play="true" :duration="500" :slides="homeStore.list"></XtxCarousel>
+    <XtxCarousel
+      :auto-play="true"
+      :duration="3000"
+      :slides="homeStore.list"
+    ></XtxCarousel>
   </div>
 </template>
 

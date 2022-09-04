@@ -1,3 +1,4 @@
+// 接口通用数据类型
 export interface ApiRes<T> {
   code: string;
   msg: string;
@@ -21,7 +22,7 @@ export interface CategoryItem {
   children: CategoryItem[];
 }
 
-// 定义轮播图数据类型
+// 轮播图数据类型
 export interface BannerItem {
   hrefUrl: string;
   id: string;
@@ -29,7 +30,7 @@ export interface BannerItem {
   type: string;
 }
 
-// 定义新鲜好物数据类型
+// 新鲜好物数据类型
 export interface NewGoodItem {
   id: string;
   name: string;
@@ -38,4 +39,11 @@ export interface NewGoodItem {
   picture: string;
   discount?: any;
   orderNum: number;
+}
+// 人气推荐数据类型
+export interface HotGoodItem {
+  id: string;
+  picture: string;
+  title: string;
+  alt: string;
 }

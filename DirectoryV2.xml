@@ -6,4 +6,11 @@
      <tree path="/src/views/layout/components/app-header-nav.vue" title="头部菜单内容封装" extension="vue"/>
      <tree path="/src/views/layout/components/app-footer.vue" title="底部" extension="vue"/>
      <tree path="/src/store/modules/category" title="分类pinia模块"/>
- </trees>
+     <tree path="/src/views/home/components/home-banner.vue" title="首页banner组件" extension="vue"/>
+     <tree path="/src/views/home/components/home-category.vue" title="首页分类组件" extension="vue"/>
+     <tree path="/src/views/home/components/home-hot.vue" title="人气推荐" extension="vue"/>
+     <tree path="/src/views/home/components/home-new.vue" title="新品好物" extension="vue"/>
+     <tree path="/src/views/home/components/home-panel.vue" title="商品模块通用组件" extension="vue"/>
+    <tree path="/src/views/home/components/home-skeleton.vue" title="商品骨架屏组件" extension="vue"/>
+    <tree path="/src/views/home" title="首页"/>
+</trees>

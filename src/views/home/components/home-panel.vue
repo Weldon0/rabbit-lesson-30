@@ -8,7 +8,12 @@ defineProps({
     type: String,
     required: true,
   },
-});
+})
+
+// 暴漏数据或者方法
+defineExpose<{ age: number }>({
+  age: 18,
+})
 </script>
 <template>
   <div class="home-panel">
