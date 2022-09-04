@@ -17,9 +17,9 @@ defineProps({
         <h3>
           {{ title }}<small>{{ subTitle }}</small>
         </h3>
-        <XtxMore to="/"></XtxMore>
+        <slot name="right"></slot>
       </div>
-      面板的内容
+      <slot></slot>
     </div>
   </div>
 </template>

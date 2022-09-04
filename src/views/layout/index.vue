@@ -6,20 +6,20 @@ import AppHeaderSticky from "@/views/layout/components/app-header-sticky.vue";
 </script>
 <template>
   <!--  顶部通栏-->
-  <AppTopnav/>
+  <AppTopnav />
   <!--  吸顶的头部-->
   <AppHeaderSticky />
   <!--  头部-->
-  <AppHeader/>
+  <AppHeader />
   <div class="app-body">
     <!--路由出口占位-->
-    <router-view/>
+    <router-view />
   </div>
   <!--  底部-->
-  <AppFooter/>
+  <AppFooter />
 </template>
 <style lang="less" scoped>
-.app-body {
-  height: 800px;
-}
+//.app-body {
+//  height: 800px;
+//}
 </style>

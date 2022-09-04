@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import HomeBanner from "./components/home-banner.vue";
 import HomeCategory from "./components/home-category.vue";
-import HomePanel from "@/views/home/components/home-panel.vue";
+import HomeNew from "@/views/home/components/home-new.vue";
 </script>
 
 <template>
@@ -13,7 +13,8 @@ import HomePanel from "@/views/home/components/home-panel.vue";
         <!-- banner轮播图 -->
         <HomeBanner />
       </div>
-      <HomePanel title="新鲜好物" subTitle="新鲜出炉 品质靠谱" />
+      <!--新鲜好物组件-->
+      <HomeNew />
     </div>
   </div>
 </template>
