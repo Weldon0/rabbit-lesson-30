@@ -13,4 +13,6 @@
      <tree path="/src/views/home/components/home-panel.vue" title="商品模块通用组件" extension="vue"/>
     <tree path="/src/views/home/components/home-skeleton.vue" title="商品骨架屏组件" extension="vue"/>
     <tree path="/src/views/home" title="首页"/>
+    <tree path="/src/views/home/components/home-brand.vue" title="热门品牌" extension="vue"
+          icons="VcsVendorsGithub"/>
 </trees>

@@ -4,6 +4,7 @@ import HomeCategory from './components/home-category.vue'
 import HomeNew from '@/views/home/components/home-new.vue'
 import HomeHot from '@/views/home/components/home-hot.vue'
 import Test from '@/views/home/test.vue'
+import HomeBrand from '@/views/home/components/home-brand.vue'
 </script>
 
 <template>
@@ -19,6 +20,8 @@ import Test from '@/views/home/test.vue'
       <HomeNew />
       <!--人气推荐-->
       <HomeHot />
+      <!--热门品牌-->
+      <HomeBrand />
     </div>
     <test />
   </div>

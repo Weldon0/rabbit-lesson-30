@@ -16,16 +16,18 @@ const target = useLazyData(homeStore.getNewGoodsList)
         <XtxMore path="/" />
       </template>
       <!-- 面板内容 -->
-      <ul class="goods-list" v-if="homeStore.newGoodsList.length">
-        <li v-for="item in homeStore.newGoodsList" :key="item.id">
-          <RouterLink to="/">
-            <img :src="item.picture" alt="" />
-            <p class="name ellipsis">{{ item.name }}</p>
-            <p class="price">&yen;{{ item.price }}</p>
-          </RouterLink>
-        </li>
-      </ul>
-      <home-skeleton v-else />
+      <transition name="fade">
+        <ul class="goods-list" v-if="homeStore.newGoodsList.length">
+          <li v-for="item in homeStore.newGoodsList" :key="item.id">
+            <RouterLink to="/">
+              <img :src="item.picture" alt="" />
+              <p class="name ellipsis">{{ item.name }}</p>
+              <p class="price">&yen;{{ item.price }}</p>
+            </RouterLink>
+          </li>
+        </ul>
+        <home-skeleton v-else />
+      </transition>
     </HomePanel>
   </div>
 </template>
